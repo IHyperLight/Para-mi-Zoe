@@ -39,7 +39,7 @@ body {
 .subtitle {
     font-weight: 200;
     font-size: 15px;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
     opacity: 0;
     transform: translateY(1rem);
     transition: opacity 1s, transform 1s;
