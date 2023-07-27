@@ -12,8 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         setTimeout(() => {
             reloadButton.style.opacity = "1";
+        }, lines.length * 2000 + 500);
+        
+        setTimeout(() => {
             reloadButton.style.pointerEvents = "auto";
-        }, lines.length * 2000);
+        }, lines.length * 2000 + 1500);
     };
 
     showLines();
