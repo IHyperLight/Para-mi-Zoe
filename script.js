@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         setTimeout(() => {
             reloadButton.style.opacity = "1";
+            reloadButton.style.visibility = "visible";
         }, lines.length * 2000);
     };
 
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             line.style.transform = "translateY(1rem)";
         });
         reloadButton.style.opacity = "0";
+        reloadButton.style.visibility = "hidden";
         showLines();
 
         window.scrollTo({
