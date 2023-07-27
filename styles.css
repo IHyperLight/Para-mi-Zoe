@@ -78,8 +78,8 @@ body {
     cursor: pointer;
     font-size: 24px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    pointer-events: none;
     opacity: 0;
-    display: none;
     transition: opacity 1s;
 }
 

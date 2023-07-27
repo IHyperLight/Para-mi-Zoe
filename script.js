@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         setTimeout(() => {
             reloadButton.style.opacity = "1";
-            reloadButton.style.display = "flex";
+            reloadButton.style.pointerEvents = "auto";
         }, lines.length * 2000);
     };
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             line.style.transform = "translateY(1rem)";
         });
         reloadButton.style.opacity = "0";
-        reloadButton.style.display = "none";
+        reloadButton.style.pointerEvents = "none";
         showLines();
 
         window.scrollTo({
