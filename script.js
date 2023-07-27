@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const lines = document.querySelectorAll('.line, .title, .subtitle');
     const reloadButton = document.querySelector('.reload-button');
-    
+
     const showLines = () => {
         lines.forEach(line => {
             const delay = line.getAttribute('data-delay') * 2000;
@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
             reloadButton.style.opacity = "1";
         }, lines.length * 2000);
     };
-    
+
     showLines();
-    
+
     reloadButton.addEventListener('click', () => {
         lines.forEach(line => {
             line.style.opacity = "0";
@@ -24,5 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         reloadButton.style.opacity = "0";
         showLines();
+
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+
+        setTimeout(showLines, 500);
     });
 });
