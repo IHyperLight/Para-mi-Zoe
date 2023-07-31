@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(showLines, 500);
     });
 
-    const totalImages = 61;
+    const totalImages = 30;
     const folderName = "images";
 
     const swiperWrapper = document.getElementById('swiperWrapper');
