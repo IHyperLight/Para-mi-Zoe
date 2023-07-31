@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
             perSlideOffset: 8,
             perSlideRotate: 1.5,
             rotate: true,
-            slideShadows: true,
+            slideShadows: false,
         },
     });
 });
