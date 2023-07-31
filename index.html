@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <title>Para mi Zoe</title>
 </head>
 
@@ -13,7 +14,10 @@
     <div class="poem-container">
         <h1 class="title" data-delay="0">a c r o s t</h1>
         <h1 class="subtitle" data-delay="1">de Bryan, para Zoe. ❤️</h1>
-        <img src="image.jpg" class="line image-line" data-delay="2">
+        <div class="swiper-container line" data-delay="2">
+            <div class="swiper-wrapper" id="swiperWrapper">
+            </div>
+        </div>
         <p class="line" data-delay="3">T al vez este momento, este ocurriendo en otro tiempo, quizá en él estemos
             juntos, quizá juntos seamos uno,</p>
         <p class="line" data-delay="4">e n cada decisión, quizá tuvimos la ilusión, de compartir nuestro futuro y ser
@@ -30,6 +34,7 @@
         <p class="line" data-delay="10">e namorado eternamente, es tu amor mi único anhelo.</p>
     </div>
     <button class="reload-button"><i class="fas fa-redo-alt"></i></button>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 

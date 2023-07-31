@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => {
             reloadButton.style.opacity = "1";
         }, lines.length * 2000 + 500);
-        
+
         setTimeout(() => {
             reloadButton.style.pointerEvents = "auto";
         }, lines.length * 2000 + 1500);
@@ -38,4 +38,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setTimeout(showLines, 500);
     });
+
+    const totalImages = 61;
+    const folderName = "images";
+
+    const swiperWrapper = document.getElementById('swiperWrapper');
+
+    for (let i = 2; i <= totalImages; i++) {
+        const swiperSlide = document.createElement('div');
+        swiperSlide.className = 'swiper-slide';
+
+        const imageElement = document.createElement('img');
+        imageElement.src = `${folderName}/image (${i}).jpg`;
+        imageElement.className = 'image-line';
+
+        swiperSlide.appendChild(imageElement);
+        swiperWrapper.appendChild(swiperSlide);
+    }
+
+    const swiper = new Swiper('.swiper-container', {
+        effect: 'cards',
+        centeredSlides: true,
+        slidesPerView: 1,
+        cardsEffect: {
+            perSlideOffset: 8,
+            perSlideRotate: 1.2,
+            rotate: true,
+            slideShadows: true,
+        },
+    });
 });
+

@@ -17,10 +17,15 @@ body {
     margin-top: 5rem;
     margin-bottom: 5rem;
     text-align: center;
-    max-width: 80%;
+    max-width: 100%;
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+}
+
+.poem-container > *:not(.swiper-container) {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .poem-container::-webkit-scrollbar {
@@ -57,11 +62,23 @@ body {
 }
 
 .image-line {
-    width: 500px;
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    max-width: 300px;
     border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.swiper-container {
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .line::first-letter {
@@ -85,7 +102,7 @@ body {
     align-items: center;
     cursor: pointer;
     font-size: 24px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     pointer-events: none;
     opacity: 0;
     transition: opacity 1s;
