@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const swiperWrapper = document.getElementById('swiperWrapper');
 
-    for (let i = 2; i <= totalImages; i++) {
+    for (let i = 1; i <= totalImages; i++) {
         const swiperSlide = document.createElement('div');
         swiperSlide.className = 'swiper-slide';
 
