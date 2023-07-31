@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesPerView: 1,
         cardsEffect: {
             perSlideOffset: 8,
-            perSlideRotate: 1.2,
+            perSlideRotate: 1.5,
             rotate: true,
             slideShadows: true,
         },
