@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             color: "white",
             weight: "500",
             size: "45px",
-            background: "linear-gradient(to bottom right, #FF4171, #FF7F99, #FF9BAC, #FFA7B8, #FFB9C5)",
+            background: "linear-gradient(to bottom right, #FF4171, #FF5982, #FF708F, #FF879D, #FF9DAA, #FFB3B7, #FFACAF, #FF9D9A)",
             useFirstLetterEffect: false,
         },
     };
