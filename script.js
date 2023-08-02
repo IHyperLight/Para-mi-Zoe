@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 "porque es mi amor por ti… esta historia sin final.",
             ],
             color: "white",
-            weight: "400",
+            weight: "500",
             size: "45px",
             background: "linear-gradient(to bottom right, #FF4171, #FF7F99, #FF9BAC, #FFA7B8, #FFB9C5)",
             useFirstLetterEffect: false,
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
         swiperSlide.className = 'swiper-slide';
 
         const imageElement = document.createElement('img');
-        imageElement.src = `${folderName}/image (${i}).jpg`;
+        imageElement.src = `${folderName}/image (${i}).webp`;
         imageElement.className = 'image-line';
 
         swiperSlide.appendChild(imageElement);
