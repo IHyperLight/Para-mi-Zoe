@@ -1,50 +1,204 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const lines = document.querySelectorAll('.line, .title, .subtitle');
+    const menuButton = document.querySelector('.menu-button');
+    const menuDropdown = document.querySelector('.menu-dropdown');
+    const linesContainer = document.querySelector('.lines-container');
+    const titleElement = document.querySelector('.title');
+    const subtitleElement = document.querySelector('.subtitle');
     const reloadButton = document.querySelector('.reload-button');
+    let currentPoem = 1;
+    let lines = document.querySelectorAll('.line, .title, .subtitle');
+    let timeouts = [];
+
+    menuButton.addEventListener('click', () => {
+        if (menuDropdown.style.display === "none" || menuDropdown.style.display === "") {
+            menuDropdown.style.display = "block";
+            setTimeout(() => {
+                menuDropdown.style.opacity = "1";
+            }, 10);
+        } else {
+            menuDropdown.style.opacity = "0";
+            setTimeout(() => {
+                menuDropdown.style.display = "none";
+            }, 300);
+        }
+    });
+
+    const poems = {
+        1: {
+            title: "·a c r o s t·",
+            font: "'Libre Baskerville', serif",
+            lines: [
+                "Tal vez este momento, este ocurriendo en otro tiempo, quizá en él estemos juntos, quizá juntos seamos uno,",
+                "en cada decisión, quizá tuvimos la ilusión, de compartir nuestro futuro y ser nosotros contra el mundo,",
+                "al filo de un sentimiento, el amor en nuestras manos, belleza en cada trato, calidez en nuestro tacto,",
+                "más allá de todo rumbo, quizá más lejos por seguro, más que hoy y mil futuros, eres tú todo mi mundo,",
+                "otro tiempo es un recuerdo, se imagina con anhelo, pero hoy bajo este cielo, aún vivo este momento, y el amor que te he descrito, existe eterno y es perfecto.",
+                "Zafiro, aun siendo tan bello, no brilla más que tu destello, el cual ilumina mi alma, con los más puros sentimientos,",
+                "oculto en la noche, sueño con tu reflejo,",
+                "enamorado eternamente, es tu amor mi único anhelo.",
+            ],
+            color: "#BFBFBF",
+            weight: "200",
+            size: "60px",
+            background: "linear-gradient(to bottom right, black, #444)",
+            useFirstLetterEffect: true,
+        },
+        2: {
+            title: "Una historia sin final.",
+            font: "'Borel', cursive",
+            lines: [
+                "¿Sabes de una historia… que no tiene un final?,",
+                "de esas que comienzan, y buscan perdurar,",
+                "tal vez toda una vida, para nada algo fugaz.",
+                "Te contaré de esta historia, en verdad es especial,",
+                "se escribe cada día, y con cada despertar,",
+                "eres su protagonista, tan hermosa y bella artista,",
+                "inspiración de mis momentos, de mi vida y de estos versos,",
+                "de mi espacio sideral, de esta historia sin final.",
+                "Y es así mi linda niña, con toda sinceridad…",
+                "Que eres todo lo que anhelo, por toda la eternidad.",
+                "De aquí hasta el infinito, sé que no va a terminar,",
+                "porque es mi amor por ti… esta historia sin final.",
+            ],
+            color: "white",
+            weight: "400",
+            size: "45px",
+            background: "linear-gradient(to bottom right, #F95F84, #FF7F99, #FF9BAC, #FFA7B8, #FFB9C5)",
+            useFirstLetterEffect: false,
+        },
+    };
 
     const showLines = () => {
         lines.forEach(line => {
             const delay = line.getAttribute('data-delay') * 2000;
-            setTimeout(() => {
+            const timeoutId = setTimeout(() => {
                 line.style.opacity = "1";
                 line.style.transform = "translateY(0)";
             }, delay);
+            timeouts.push(timeoutId);
         });
-        setTimeout(() => {
+        const reloadTimeoutId = setTimeout(() => {
             reloadButton.style.opacity = "1";
         }, lines.length * 2000 + 500);
+        timeouts.push(reloadTimeoutId);
 
-        setTimeout(() => {
+        const pointerTimeoutId = setTimeout(() => {
             reloadButton.style.pointerEvents = "auto";
         }, lines.length * 2000 + 1500);
+        timeouts.push(pointerTimeoutId);
     };
 
-    showLines();
+    function clearAllTimeouts() {
+        for (let i = 0; i < timeouts.length; i++) {
+            clearTimeout(timeouts[i]);
+        }
+        timeouts = [];
+    }
 
-    reloadButton.addEventListener('click', () => {
-        lines.forEach(line => {
-            line.style.opacity = "0";
-            line.style.transform = "translateY(1rem)";
-        });
-        reloadButton.style.opacity = "0";
-        reloadButton.style.pointerEvents = "none";
-        showLines();
-
+    function smoothScrollToTop() {
         window.scrollTo({
             top: 0,
             left: 0,
             behavior: 'smooth'
         });
+    }
+
+    function resetLines() {
+        clearAllTimeouts();
+
+        document.querySelectorAll('.line').forEach(line => {
+            line.style.opacity = "0";
+            line.style.transform = "translateY(3rem)";
+        });
+
+        document.querySelectorAll('.title, .subtitle').forEach(element => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(1rem)";
+        });
+
+        reloadButton.style.opacity = "0";
+        reloadButton.style.pointerEvents = "none";
+    }
+
+    function displayPoem(poem) {
+        titleElement.textContent = poem.title;
+
+        let poemContent = '';
+        poem.lines.forEach((line, index) => {
+            poemContent += `<p class="line" data-delay="${index + 3}">${line}</p>`;
+        });
+        linesContainer.innerHTML = poemContent;
+
+        linesContainer.style.color = poem.color;
+
+        linesContainer.style.fontWeight = poem.weight;
+
+        lines = document.querySelectorAll('.line, .title, .subtitle');
+
+        titleElement.style.fontFamily = poem.font;
+
+        titleElement.style.fontSize = poem.size;
+
+        subtitleElement.style.color = poem.color;
+
+        document.body.style.background = poem.background;
+
+        if (poem.useFirstLetterEffect) {
+            linesContainer.classList.remove('no-first-letter-effect');
+        } else {
+            linesContainer.classList.add('no-first-letter-effect');
+        }
+
+        showLines();
+    }
+
+    let storedPoem = localStorage.getItem('selectedPoem');
+    if (storedPoem) {
+        currentPoem = storedPoem;
+        displayPoem(poems[currentPoem]);
+    } else {
+        displayPoem(poems[1]);
+    }
+
+    document.querySelectorAll('.menu-dropdown li').forEach(li => {
+        li.addEventListener('click', function () {
+            const selectedPoem = this.getAttribute('data-poem');
+
+            if (!poems[selectedPoem]) {
+                return;
+            }
+
+            localStorage.setItem('selectedPoem', selectedPoem);
+
+            if (selectedPoem != currentPoem) {
+                resetLines();
+                smoothScrollToTop();
+                
+                setTimeout(() => {
+                    displayPoem(poems[selectedPoem]);
+                }, 500);
+                currentPoem = selectedPoem;
+            }
+
+            menuDropdown.style.display = "none";
+        });
+    });
+
+    reloadButton.addEventListener('click', () => {
+        resetLines();
+        showLines();
+
+        smoothScrollToTop();
 
         setTimeout(showLines, 500);
     });
 
-    const totalImages = 20;
+    const totalImages = 21;
     const folderName = "images";
 
     const swiperWrapper = document.getElementById('swiperWrapper');
 
-    for (let i = 1; i <= totalImages; i++) {
+    for (let i = 0; i <= totalImages; i++) {
         const swiperSlide = document.createElement('div');
         swiperSlide.className = 'swiper-slide';
 
@@ -60,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
         effect: 'cards',
         centeredSlides: true,
         slidesPerView: 1,
+        initialSlide: 10,
         cardsEffect: {
             perSlideOffset: 8,
             perSlideRotate: 1.5,
@@ -68,4 +223,3 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     });
 });
-

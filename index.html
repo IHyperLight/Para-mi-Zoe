@@ -7,31 +7,28 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="icon" href="heart-solid.ico" type="image/x-icon">
     <title>Para mi Zoe</title>
 </head>
 
 <body>
+    <button class="menu-button"><i class="fas fa-bars"></i></button>
+    <div class="menu-dropdown">
+        <ul>
+            <li data-poem="1">a c r o s t</li>
+            <li data-poem="2">Una historia sin final.</li>
+            <li data-poem="3">Próximamente . . .</li>
+        </ul>
+    </div>
     <div class="poem-container">
-        <h1 class="title" data-delay="0">a c r o s t</h1>
+        <h1 class="title" data-delay="0"></h1>
         <h1 class="subtitle" data-delay="1">de Bryan, para Zoe. ❤️</h1>
         <div class="swiper-container line" data-delay="2">
             <div class="swiper-wrapper" id="swiperWrapper">
             </div>
         </div>
-        <p class="line" data-delay="3">T al vez este momento, este ocurriendo en otro tiempo, quizá en él estemos
-            juntos, quizá juntos seamos uno,</p>
-        <p class="line" data-delay="4">e n cada decisión, quizá tuvimos la ilusión, de compartir nuestro futuro y ser
-            nosotros contra el mundo,</p>
-        <p class="line" data-delay="5">a l filo de un sentimiento, el amor en nuestras manos, belleza en cada trato,
-            calidez en nuestro tacto,</p>
-        <p class="line" data-delay="6">m ás allá de todo rumbo, quizá más lejos por seguro, más que hoy y mil
-            futuros, eres tú todo mi mundo,</p>
-        <p class="line" data-delay="7">o tro tiempo es un recuerdo, se imagina con anhelo, pero hoy bajo este cielo,
-            aún vivo este momento, y el amor que te he descrito, existe eterno y es perfecto.</p>
-        <p class="line" data-delay="8">Z afiro, aun siendo tan bello, no brilla más que tu destello, el cual ilumina mi
-            alma, con los más puros sentimientos,</p>
-        <p class="line" data-delay="9">o culto en la noche, sueño con tu reflejo,</p>
-        <p class="line" data-delay="10">e namorado eternamente, es tu amor mi único anhelo.</p>
+        <div class="lines-container">
+        </div>
     </div>
     <button class="reload-button"><i class="fas fa-redo-alt"></i></button>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
