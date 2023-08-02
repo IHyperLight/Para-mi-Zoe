@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ],
             color: "#BFBFBF",
             weight: "200",
-            size: "60px",
+            size: "57px",
             background: "linear-gradient(to bottom right, black, #444)",
             useFirstLetterEffect: true,
         },
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             color: "white",
             weight: "400",
             size: "45px",
-            background: "linear-gradient(to bottom right, #F95F84, #FF7F99, #FF9BAC, #FFA7B8, #FFB9C5)",
+            background: "linear-gradient(to bottom right, #B3476B, #FF7F99, #FF9BAC, #FFA7B8, #FFB9C5)",
             useFirstLetterEffect: false,
         },
     };
