@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     menuButton.addEventListener('click', () => {
         if (menuDropdown.style.display === "none" || menuDropdown.style.display === "") {
             menuDropdown.style.display = "block";
+            menuDropdown.style.pointerEvents = "auto";
             setTimeout(() => {
                 menuDropdown.style.opacity = "1";
             }, 10);
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             menuDropdown.style.opacity = "0";
             setTimeout(() => {
                 menuDropdown.style.display = "none";
+                menuDropdown.style.pointerEvents = "none";
             }, 300);
         }
     });
@@ -173,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (selectedPoem != currentPoem) {
                 resetLines();
                 smoothScrollToTop();
-                
+
                 setTimeout(() => {
                     displayPoem(poems[selectedPoem]);
                 }, 500);
