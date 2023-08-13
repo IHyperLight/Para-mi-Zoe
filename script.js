@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
             color: "white",
             linesWeight: "500",
             titleWeight: "400",
-            size: "52px",
+            size: "57px",
             background: "linear-gradient(to top right, #a05c62ff, #813953ff, #5c1d44ff, #36143dff, #28103bff, #1a0e3aff)",
             useFirstLetterEffect: false,
         },
