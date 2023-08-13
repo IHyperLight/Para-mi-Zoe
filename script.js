@@ -40,7 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "enamorado eternamente, es tu amor mi único anhelo.",
             ],
             color: "#BFBFBF",
-            weight: "200",
+            linesWeight: "200",
+            titleWeight: "700",
             size: "57px",
             background: "linear-gradient(to bottom right, black, #444)",
             useFirstLetterEffect: true,
@@ -63,9 +64,44 @@ document.addEventListener('DOMContentLoaded', function () {
                 "porque es mi amor por ti… esta historia sin final.",
             ],
             color: "white",
-            weight: "500",
+            linesWeight: "500",
+            titleWeight: "1000",
             size: "45px",
             background: "linear-gradient(to bottom right, #FF4171, #FF5982, #FF708F, #FF879D, #FF9DAA, #FFB3B7, #FFACAF, #FF9D9A)",
+            useFirstLetterEffect: false,
+        },
+        3: {
+            title: "Seguir soñando...",
+            font: "'Bodoni Moda', serif",
+            lines: [
+                "Pasó un día más... Ya es otra noche.",
+                "Las lágrimas cuidan aquello que se ha roto.",
+                "La soledad te abraza y dice estar contigo.",
+                "Duermes, imaginando un momento anhelado.",
+                "Sueñas... viviendo una noche sin llanto.",
+                "No quieres huir, te quieres quedar.",
+                "Sientes, es más, que un sueño ideal.",
+                "Aquí si hay color, hay libertad.",
+                "Te sientes feliz, me siento con paz.",
+                "Allí los abrazos, son de verdad, allí un te quiero, te hace brillar.",
+                "¿Por qué es tan hermoso? Me quiero quedar.",
+                "Aquí siento amor, se siente en verdad.",
+                "Es porque estás tú, siendo protagonista,",
+                "del más lindo sueño, de una historia infinita.",
+                "Te veo tan bella, aquí estás tan cerca.",
+                "Eres hermosa, más que una estrella.",
+                "Quiero correr, te quiero abrazar,",
+                "tomar de las manos, decir que te amo.",
+                "Necesito valor, estoy sonrojado.",
+                "Me cae una lágrima, la veo a mi lado.",
+                "No importa el llanto, importa el amor.",
+                "Y tú eres mi todo... mi corazón.",
+            ],            
+            color: "white",
+            linesWeight: "500",
+            titleWeight: "400",
+            size: "52px",
+            background: "linear-gradient(to top right, #a05c62ff, #813953ff, #5c1d44ff, #36143dff, #28103bff, #1a0e3aff)",
             useFirstLetterEffect: false,
         },
     };
@@ -133,13 +169,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         linesContainer.style.color = poem.color;
 
-        linesContainer.style.fontWeight = poem.weight;
+        linesContainer.style.fontWeight = poem.linesWeight;
 
         lines = document.querySelectorAll('.line, .title, .subtitle');
 
         titleElement.style.fontFamily = poem.font;
 
         titleElement.style.fontSize = poem.size;
+
+        titleElement.style.fontWeight = poem.titleWeight;
 
         subtitleElement.style.color = poem.color;
 
