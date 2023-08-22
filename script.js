@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Me cae una lágrima, la veo a mi lado.",
                 "No importa el llanto, importa el amor.",
                 "Y tú eres mi todo... mi corazón.",
-            ],            
+            ],
             color: "white",
             linesWeight: "500",
             titleWeight: "400",
@@ -262,4 +262,41 @@ document.addEventListener('DOMContentLoaded', function () {
             slideShadows: false,
         },
     });
+
+    const celebrateButton = document.querySelector('.celebrate-button');
+    const particlesContainer = document.querySelector('#particles-js');
+    const celebrationMessage = document.querySelector('.celebration-message');
+
+    let fadeTimeout;
+    let hideTimeout;
+
+    celebrateButton.addEventListener('click', () => {
+        clearTimeout(fadeTimeout);
+        clearTimeout(hideTimeout);
+
+        particlesContainer.style.opacity = "0";
+        particlesContainer.style.visibility = "hidden";
+        celebrationMessage.style.opacity = "0";
+        celebrationMessage.style.visibility = "hidden";
+
+        setTimeout(() => {
+            particlesContainer.style.opacity = "1";
+            particlesContainer.style.visibility = "visible";
+            celebrationMessage.style.opacity = "1";
+            celebrationMessage.style.visibility = "visible";
+        }, 50);
+
+        particlesJS.load('particles-js', 'path_to_particles.json', function () {
+            fadeTimeout = setTimeout(() => {
+                particlesContainer.style.opacity = "0";
+                celebrationMessage.style.opacity = "0";
+            }, 5000);
+
+            hideTimeout = setTimeout(() => {
+                particlesContainer.style.visibility = "hidden";
+                celebrationMessage.style.visibility = "hidden";
+            }, 7000);
+        });
+    });
+
 });
