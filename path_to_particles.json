@@ -21,8 +21,8 @@
             "type": "circle"
         },
         "opacity": {
-            "value": 0.5,
-            "random": false,
+            "value": 1,
+            "random": true,
             "anim": {
                 "enable": false
             }
