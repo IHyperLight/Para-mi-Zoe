@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(showLines, 500);
     });
 
-    const totalImages = 21;
+    const totalImages = 14;
     const folderName = "images";
 
     const swiperWrapper = document.getElementById('swiperWrapper');
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
         effect: 'cards',
         centeredSlides: true,
         slidesPerView: 1,
-        initialSlide: 10,
+        initialSlide: 7,
         cardsEffect: {
             perSlideOffset: 8,
             perSlideRotate: 1.5,
